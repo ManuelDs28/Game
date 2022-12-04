@@ -53,4 +53,8 @@ class Ball {
  
     return collision
   }
+
+  disableCollide() {
+    this.canCollide = false;
+  }
 }

@@ -42,6 +42,7 @@ class Game {
   clear() {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
   }
+
   checkCollisions() {
     const allBricks = this.bricks.bricks.reduce((acc, row) => {
       acc = [...acc, ...row];
@@ -55,7 +56,7 @@ class Game {
     if (brickColliding &&  brickColliding.status && this.ball.canCollide) {
 
       brickColliding.status = 0;
-      this.ball.canCollide = false;
+      this.ball.disableCollide();
       this.ball.vy = -this.ball.vy;
 
       setTimeout(() => {
@@ -63,8 +64,6 @@ class Game {
       }, 200)
       this.score += 10;
     }
-
-
 
     if (
       this.ball.x < this.player.x + this.player.width &&
@@ -90,6 +89,7 @@ class Game {
       );
     }
   }
+
   // resetGame(){
   //     clearInterval(this.intervalId)
   //     this.player.ctx.canvas.width / 2;
@@ -97,6 +97,7 @@ class Game {
   //     this.player.y = 800
   //     this.ball.y = 780
   // }
+
   drawLives() {
     ctx.font = "15px Rubik Glitch";
     ctx.fillStyle = "#Orange";
