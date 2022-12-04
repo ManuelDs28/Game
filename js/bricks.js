@@ -14,25 +14,26 @@ class Bricks {
     this.brickOffsetLeft = 30;
     this.bricks = [];
      
-    new Array(this.brickColumnCount).fill('').forEach((e, c) => {
-      this.bricks[c] = [];
-      new Array(this.brickRowCount).fill('').forEach((e, r) => {
+    new Array(this.brickColumnCount).fill('').forEach((e, column) => {
+      this.bricks[column] = [];
+      new Array(this.brickRowCount).fill('').forEach((e, row) => {
 
-        this.bricks[c][r] = {
-          x: r * this.brickWidth + this.bricksGap * r,
-          y: c * this.brickHeight + this.bricksGap * c, 
+        this.bricks[column][row] = {
+          x: row * this.brickWidth + this.bricksGap * row,
+          y: column * this.brickHeight + this.bricksGap * column, 
           width: this.brickWidth,
           height: this.brickHeight,
           color: random_rgba(),
-          column: c,
-          row: r,
-          id: c + r,
+          column,
+          row: row,
+          id: column + row,
           status: 1
         };
       })
     })
 
   }
+  
   draw() {
     const allBricks = this.bricks.reduce((acc, row) => {
       acc = [...acc, ...row]
