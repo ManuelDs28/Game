@@ -1,7 +1,7 @@
 class Game {
   constructor(ctx) {
     this.ctx = ctx;
-    this.ball = new Ball(this.ctx, 400, 780);
+    this.ball = new Ball(this.ctx, 400, 700);
     this.bg = new Background(this.ctx);
     this.player = new Player(this.ctx, this.ctx.canvas.width / 2, 800);
     this.bricks = new Bricks(this.ctx, this.ctx.canvas.width / 2, 150);
@@ -54,10 +54,9 @@ class Game {
     });
 
     if (brickColliding &&  brickColliding.status && this.ball.canCollide) {
-
       brickColliding.status = 0;
       this.ball.disableCollide();
-      this.ball.vy = -this.ball.vy;
+      this.ball.invertYDirection()
 
       setTimeout(() => {
         this.ball.enableCollide();
@@ -65,14 +64,8 @@ class Game {
       this.score += 10;
     }
 
-    if (
-      this.ball.x < this.player.x + this.player.width &&
-      this.ball.x + this.ball.width > this.player.x &&
-      this.ball.y < this.player.y + this.player.width &&
-      this.ball.y + this.ball.height > this.player.y &&
-      this.ball.prevY + this.ball.height <= this.player.y
-    ) {
-      this.ball.vy = -this.ball.vy
+    if (this.ball.collideWith(this.player)) {
+      this.ball.invertYDirection();
     } 
   }
 

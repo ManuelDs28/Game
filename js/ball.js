@@ -5,8 +5,8 @@ class Ball {
     this.y = y;
     this.prevY = y;
     this.prevX = x;
-    this.vx = 5;
-    this.vy = -5;
+    this.vx = 2;
+    this.vy = -2;
     this.width = 60;
     this.img = new Image();
     this.img.src = "./images/fire-ball.png";
@@ -44,15 +44,22 @@ class Ball {
 
     }
   }
-
+  
   collideWith(obj) {
-    const collision =  this.x < obj.x + obj.width &&
-    this.x + this.width > obj.x &&
-    this.y < obj.y + obj.width &&
-    this.y + this.height > obj.y
+    const isBallLeftLimitLowerThanObjRightLimit = this.x < obj.x + obj.width;
+    const isBallRightLimitGreaterThanObjLeftLimit = this.x + this.width > obj.x;
+    const isBallTopLimitLowerThanObjBottomLimit = this.y < obj.y + obj.height;
+    const isBallBottomLimitGreaterThanObjTopLimit =   this.y + this.height > obj.y
+    const collision =  
+    isBallLeftLimitLowerThanObjRightLimit &&
+    isBallRightLimitGreaterThanObjLeftLimit &&
+    isBallTopLimitLowerThanObjBottomLimit && 
+    isBallBottomLimitGreaterThanObjTopLimit 
+  
  
     return collision
   }
+ 
 
   disableCollide() {
     this.canCollide = false;
@@ -60,5 +67,9 @@ class Ball {
 
   enableCollide(){
     this.canCollide = true;
+  }
+
+  invertYDirection() {
+    this.vy = -this.vy 
   }
 }

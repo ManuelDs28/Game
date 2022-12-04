@@ -4,8 +4,8 @@ class Bricks {
     this.x = x;
     this.y = y;
     this.vy = -2;
-    this.brickRowCount = 7;
-    this.brickColumnCount = 5;
+    this.brickRowCount = 5;
+    this.brickColumnCount = 7;
     this.bricksGap = 10;
     this.brickWidth = (this.ctx.canvas.width / this.brickRowCount) - this.bricksGap;
     this.brickHeight = 60;
@@ -14,18 +14,18 @@ class Bricks {
     this.brickOffsetLeft = 30;
     this.bricks = [];
      
-    new Array(this.brickColumnCount).fill('').forEach((e, column) => {
-      this.bricks[column] = [];
-      new Array(this.brickRowCount).fill('').forEach((e, row) => {
-
-        this.bricks[column][row] = {
-          x: row * this.brickWidth + this.bricksGap * row,
-          y: column * this.brickHeight + this.bricksGap * column, 
+    new Array(this.brickRowCount).fill('').forEach((e, row) => {
+      this.bricks[row] = [];
+      new Array(this.brickColumnCount).fill('').forEach((e, column) => {
+  
+        this.bricks[row][column] = {
+          x: column * this.brickWidth + this.bricksGap * column,
+          y: row * this.brickHeight + this.bricksGap * row, 
           width: this.brickWidth,
           height: this.brickHeight,
           color: random_rgba(),
           column,
-          row: row,
+          row,
           id: column + row,
           status: 1
         };
