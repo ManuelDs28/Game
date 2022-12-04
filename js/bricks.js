@@ -42,11 +42,11 @@ class Bricks {
     
     allBricks.forEach(element => {
       if (element.status) {
-        ctx.beginPath();
-        ctx.rect(element.x, element.y, this.brickWidth, this.brickHeight);
-        ctx.fillStyle = element.color
-        ctx.fill();
-        ctx.closePath();
+        this.ctx.beginPath();
+        this.ctx.rect(element.x, element.y, this.brickWidth, this.brickHeight);
+        this.ctx.fillStyle = element.color
+        this.ctx.fill();
+        this.ctx.closePath();
       }
      
     });
