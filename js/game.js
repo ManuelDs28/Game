@@ -60,7 +60,7 @@ class Game {
       this.ball.vy = -this.ball.vy;
 
       setTimeout(() => {
-        this.ball.canCollide = true
+        this.ball.enableCollide();
       }, 200)
       this.score += 10;
     }
