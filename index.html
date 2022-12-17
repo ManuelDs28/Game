@@ -6,16 +6,36 @@
   <meta name="viewport" content="width=device-width">
   <title>BRICK BREAKER</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Titillium+Web&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Titillium+Web&display=swap" rel="stylesheet">
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <h1>BRICK BREAKER</h1>
-  <canvas id="canvas-test" width="800" height="950"></canvas>
-  <div>
-    <button class="start-btn">Start Game</button>
+  <div class="game-center">
+    <img src="images/brickbreaker (1).png" width="600" alt="brickbreaker">
+    <div class="canvas-div hidden">
+      <canvas class="hidden" id="canvas-test" width="700" height="820"></canvas>
+    </div>
+
+    <div class="both-btn">
+      <button id="glow-on-hover" class="start-btn">Start Game</button>
+      <button id="glow-on-hover" class="how-to-play">How to play</button>
+
+    </div>
+
+    <div class="instructions hidden">
+      <p>In this game, the player moves a PADDLE from side-to-side to hit a BALL. The game’s objective is to eliminate
+        all of the BRICKS at the top of the screen by hitting them with the BALL. But, if the ball hits the bottom
+        ENCLOSURE, the player loses one life,the game ends if you lose your three lives!</p>
+      <p>To win the game, all the BRICKS must be eliminated.</p>
+      <p>To move the PADDLE you have to use the arrows right and left </p>
+      <img src="./images/arrows (2).png" alt="arrows">
+      <button id="glow-on-hover" class="back-to-menu">Back to menu</button>
+    </div>
+
+    <button class="play-again hidden" id="glow-on-hover" onClick="window.location.reload();">Play Again</button>
+
   </div>
   <script src="js/bricks.js"></script>
   <script src="js/player.js"></script>

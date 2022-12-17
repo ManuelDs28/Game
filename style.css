@@ -1,10 +1,124 @@
 body {
 	font-family: 'Rubik Glitch', cursive;
+	color: black;
+	background-image: url(./images/bg.jpg);
+}
+h1{
+	font-size: 100px;
+	background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+}
+#canvas-test{
+	position: relative;
+}
+.play-again{
+	position: absolute;
+	
+
+}
+.canvas-div{
+	position: relative;
 }
 
-#canvas-test {
-	border: 4px solid black;
+#score{
+	z-index: -1;
+	width: 100px;
+	position: absolute;
+	bottom: 35px;
+	left: 15px;
 }
+#hearts1, #hearts2,#hearts3{
+	width: 30px;
+}
+.separate-hearts{
+	display: flex;
+	justify-content: space-between;
+	width: 100px;
+	position: absolute;
+	right: 15px;
+	bottom: 35px;
+}
+
+
 .hidden{
 	display: none;
+}
+
+.game-center{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+.start-btn{
+	margin: 20px;
+}
+.how-to-play{
+	margin: 20px;
+}
+
+.instructions {
+	width: 650px;
+	color: #fff;
+	
+}
+
+#glow-on-hover {
+	font-family: 'Rubik Glitch' ;
+	width: 220px;
+	height: 50px;
+	border: none;
+	outline: none;
+	color: #fff;
+	background: #111;
+	cursor: pointer;
+	position: relative;
+	z-index: 0;
+	border-radius: 10px;
+}
+
+#glow-on-hover:before {
+	content: '';
+	background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+	position: absolute;
+	top: -2px;
+	left:-2px;
+	background-size: 400%;
+	z-index: -1;
+	filter: blur(5px);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	animation: glowing 20s linear infinite;
+	opacity: 0;
+	transition: opacity .3s ease-in-out;
+	border-radius: 10px;
+}
+
+#glow-on-hover:active {
+	color: #000
+}
+
+#glow-on-hover:active:after {
+	background: transparent;
+}
+
+#glow-on-hover:hover:before {
+	opacity: 1;
+}
+
+#glow-on-hover:after {
+	z-index: -1;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #111;
+	left: 0;
+	top: 0;
+	border-radius: 10px;
+}
+@keyframes glowing {
+	0% { background-position: 0 0; }
+	50% { background-position: 400% 0; }
+	100% { background-position: 0 0; }
 }
