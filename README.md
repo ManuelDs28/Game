@@ -1,5 +1,5 @@
 Hi everyone
-This is my first proyect since I started the Bootcamp!
+This is my first project since I started the Bootcamp!
 I hope you like it.
 The game it's made with HTML, CSS and Javascript.
 The game is inspired by the game called Brick Breaker.
